@@ -21,6 +21,8 @@ namespace SyringePumpControlNetStandard.Models
         private ConcurrentDictionary<int, IPump> _dictionary;
 
 
+        public int TotalPumpsInChain => _dictionary.Count;
+        
         public IPump this[int pumpAddress]
         {
             get => _dictionary[pumpAddress];

@@ -1,4 +1,4 @@
-﻿using SyringePumpControlNetStandard.Models.CommandConstants;
+﻿using SyringePumpControlNetStandard.Annotations.Extensions;
 
 namespace SyringePumpControlNetStandard.Models.Commands
 {
@@ -8,9 +8,7 @@ namespace SyringePumpControlNetStandard.Models.Commands
         {
             Message = "DIR";
 
-            Value = direction == PumpDirection.Infuse
-                ? PumpDirectionConversions.Infuse
-                : PumpDirectionConversions.Withdraw;
+            Value = direction.ToCommandString();
         }
 
         public override string Message { get; }

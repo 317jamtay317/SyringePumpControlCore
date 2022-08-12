@@ -2,9 +2,9 @@
 {
     public enum RateUnits
     {
-        MicroLitersPerMinutes,
-        MicroLitersPerHour,
-        MilliLitersPerMinute,
+        MicrolitersPerMinutes,
+        MicrolitersPerHour,
+        MillilitersPerMinute,
         MilliLitersPerHour
     }
 }

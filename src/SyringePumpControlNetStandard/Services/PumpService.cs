@@ -14,8 +14,11 @@ namespace SyringePumpControlNetStandard.Services
         {
             _pumps = getPumps();
             _port = new Port();
+            BuzzDelay = 50;
         }
 
+        public long BuzzDelay { get; set; }
+        
         public IEnumerable<string> PortNames => _port.GetPortNames();
         
         public void Start(int pumpAddress, float rate)
@@ -55,7 +58,7 @@ namespace SyringePumpControlNetStandard.Services
             var request = new BuzzCommand(pumpAddress, Switch.On);
             SendCommand(request, pumpAddress);
 
-            var timeSpan = TimeSpan.FromMilliseconds(50);
+            var timeSpan = TimeSpan.FromMilliseconds(BuzzDelay);
             var delayedCommand = new DelayedCommand(timeSpan,  new BuzzCommand(pumpAddress, Switch.Off));
 
             delayedCommand.Start((parameters)=> TimerCallback((IPumpCommand)parameters[0]));

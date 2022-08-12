@@ -2,7 +2,7 @@
 {
     public enum Units
     {
-        MicroLiters,
-        MilliLiters
+        Microliters,
+        Milliliters
     }
 }

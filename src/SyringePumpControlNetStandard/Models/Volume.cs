@@ -6,14 +6,14 @@ namespace SyringePumpControlNetStandard.Models
     {
         public static Volume Default()
         {
-            return new Volume(0, Units.MilliLiters);
+            return new Volume(0, Units.Milliliters);
         }
         
         public static implicit operator Volume(string value)
         {
             if (string.IsNullOrWhiteSpace(value)) return Default();
 
-            var unitsStringValue = value.Substring(value.Length - 3);
+            var unitsStringValue = value.Substring(value.Length - 2);
 
             var stringValue = value.Replace(unitsStringValue, string.Empty);
 
@@ -22,11 +22,11 @@ namespace SyringePumpControlNetStandard.Models
                 return Default();
             }
 
-            var unit = Units.MilliLiters;
+            var unit = Units.Milliliters;
 
             if (unitsStringValue.ToLower() == "ul" || unitsStringValue == "microliters")
             {
-                unit = Units.MicroLiters;
+                unit = Units.Microliters;
             }
             
             var v = new Volume(floatValue, unit){_stringValue = value};
@@ -38,7 +38,7 @@ namespace SyringePumpControlNetStandard.Models
         {
             Value = value;
             Unit = unit;
-            var stringUnit = unit == Units.MicroLiters ? "uL" : "mL";
+            var stringUnit = unit == Units.Microliters ? "uL" : "mL";
             _stringValue = $"{Value}{stringUnit}";
         }
 
@@ -56,7 +56,7 @@ namespace SyringePumpControlNetStandard.Models
 
         public bool Equals(Volume other)
         {
-            return _stringValue == other._stringValue && Value.Equals(other.Value) && Unit == other.Unit;
+            return Value.Equals(other.Value) && Unit == other.Unit;
         }
 
         public override bool Equals(object obj)
@@ -68,8 +68,7 @@ namespace SyringePumpControlNetStandard.Models
         {
             unchecked
             {
-                var hashCode = (_stringValue != null ? _stringValue.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ Value.GetHashCode();
+                var hashCode =  Value.GetHashCode();
                 hashCode = (hashCode * 397) ^ (int)Unit;
                 return hashCode;
             }

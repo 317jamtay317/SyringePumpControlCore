@@ -8,6 +8,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BD3EE443
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyringePumpControlNetStandard.Tests", "tests\SyringePumpControlNetStandard.Tests\SyringePumpControlNetStandard.Tests.csproj", "{4FC4532C-BBB4-431E-B495-44D54F5FCDA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTest", "tests\ConsoleTest\ConsoleTest.csproj", "{4BCAAF4D-71BE-455C-B1BD-AEB7F660BC8B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,9 +24,14 @@ Global
 		{4FC4532C-BBB4-431E-B495-44D54F5FCDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4FC4532C-BBB4-431E-B495-44D54F5FCDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4FC4532C-BBB4-431E-B495-44D54F5FCDA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BCAAF4D-71BE-455C-B1BD-AEB7F660BC8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BCAAF4D-71BE-455C-B1BD-AEB7F660BC8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BCAAF4D-71BE-455C-B1BD-AEB7F660BC8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BCAAF4D-71BE-455C-B1BD-AEB7F660BC8B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{1BEEFB3A-DCE0-4113-94E3-B0F5902BCF3F} = {1F5D3203-0B13-45BD-AFC8-D8A109E1E406}
 		{4FC4532C-BBB4-431E-B495-44D54F5FCDA4} = {BD3EE443-8440-40E1-A2E0-43A2B69340FF}
+		{4BCAAF4D-71BE-455C-B1BD-AEB7F660BC8B} = {BD3EE443-8440-40E1-A2E0-43A2B69340FF}
 	EndGlobalSection
 EndGlobal

@@ -2,7 +2,7 @@
 {
     public class UnitConversions
     {
-        public const string MilliLiters = "ML";
-        public const string MicroLiters = "UL";
+        public const string Milliliters = "ML";
+        public const string Microliters = "UL";
     }
 }

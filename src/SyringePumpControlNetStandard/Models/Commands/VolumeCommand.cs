@@ -1,4 +1,5 @@
-﻿using SyringePumpControlNetStandard.Models.CommandConstants;
+﻿using SyringePumpControlNetStandard.Annotations.Extensions;
+using SyringePumpControlNetStandard.Models.CommandConstants;
 
 namespace SyringePumpControlNetStandard.Models.Commands
 {
@@ -17,9 +18,7 @@ namespace SyringePumpControlNetStandard.Models.Commands
         public VolumeUnitsCommand(int address, Units unit) : base(address)
         {
             Message = "VOL";
-            Value = unit == Units.MicroLiters? 
-                UnitConversions.MicroLiters: 
-                UnitConversions.MilliLiters;
+            Value = unit.ToCommandString();
         }
 
         public override string Message { get; }

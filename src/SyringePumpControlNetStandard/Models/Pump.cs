@@ -1,5 +1,5 @@
 ﻿using System;
-using SyringePumpControlNetStandard.Models.CommandConstants;
+using SyringePumpControlNetStandard.Annotations.Extensions;
 using SyringePumpControlNetStandard.Models.Commands;
 
 namespace SyringePumpControlNetStandard.Models
@@ -67,18 +67,7 @@ namespace SyringePumpControlNetStandard.Models
 
         public string Direction
         {
-            get
-            {
-                switch (PumpDirection)
-                {
-                    case PumpDirection.Infuse:
-                        return PumpDirectionConversions.Infuse;
-                    case PumpDirection.Withdraw:
-                        return PumpDirectionConversions.Withdraw;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
+            get => PumpDirection.ToCommandString();
         }
 
         /// <summary>
@@ -118,22 +107,7 @@ namespace SyringePumpControlNetStandard.Models
         /// <exception cref="ArgumentOutOfRangeException"></exception>
         public string UnitRate
         {
-            get
-            {
-                switch (RateUnits)
-                {//TODO:Figure out what is required here
-                    case RateUnits.MicroLitersPerMinutes:
-                        return UnitRateConversions.MicroLiterPerMinute;
-                    case RateUnits.MicroLitersPerHour:
-                        return UnitRateConversions.MicroLiterPerHour;
-                    case RateUnits.MilliLitersPerMinute:
-                        return UnitRateConversions.MilliLiterPerMinute;
-                    case RateUnits.MilliLitersPerHour:
-                        return UnitRateConversions.MilliLiterPerHour;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
+            get => RateUnits.ToCommandString();
         }
 
         public Volume TargetVolume
@@ -179,8 +153,8 @@ namespace SyringePumpControlNetStandard.Models
         {
             try
             {
-                if(IsConnected == false)
-                    Connect();
+                Connect();
+                
                 _port.WriteLine(pumpCommand.ToString());
                 
                 Disconnect();
