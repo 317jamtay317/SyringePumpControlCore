@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using SyringePumpControlNetStandard.Models;
 using SyringePumpControlNetStandard.Models.Commands;
 
@@ -59,11 +60,11 @@ namespace SyringePumpControlNetStandard.Services
             var request = new BuzzCommand(pumpAddress, Switch.On);
             SendCommand(request, pumpAddress);
 
-            var timeSpan = TimeSpan.FromMilliseconds(BuzzDelay);
-            var delayedCommand = new DelayedCommand(timeSpan,  new BuzzCommand(pumpAddress, Switch.Off));
+            Task.Delay(BuzzDelay);
+            request = new BuzzCommand(pumpAddress, Switch.Off);
+            SendCommand(request, pumpAddress);
 
-            delayedCommand.Start((parameters)=> TimerCallback((IPumpCommand)parameters[0]));
-        }
+          }
 
         public void UpdateSinglePumpValues(int pumpAddress, PumpValues values)
         {
