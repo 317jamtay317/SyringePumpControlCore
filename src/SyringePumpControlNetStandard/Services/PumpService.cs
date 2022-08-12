@@ -28,6 +28,7 @@ namespace SyringePumpControlNetStandard.Services
             pump.Rate = rate;
 
             var startRequest = new StartCommand(pumpAddress);
+            pump.SetCurrentValues();
             pump.Send(startRequest);
         }
 
