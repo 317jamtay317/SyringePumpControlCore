@@ -3,12 +3,12 @@
 using SyringePumpControlNetStandard.Models;
 using SyringePumpControlNetStandard.Services;
 
-var port = new Port();
+var port = new Port() { BaudRate=19200,Parity=System.IO.Ports.Parity.None, DataBits=8, StopBits=System.IO.Ports.StopBits.One};
 var pumpA = new Pump(port)
 {
     Address = 0, 
     Diameter = 14, 
-    Rate = 30,
+    Rate = 40,
     PumpDirection = PumpDirection.Infuse,
     RateUnits = RateUnits.MicrolitersPerMinutes, 
     TargetVolume = "3ml"
