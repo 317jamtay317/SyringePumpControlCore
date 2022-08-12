@@ -182,6 +182,12 @@ namespace SyringePumpControlNetStandard.Models
             }
         }
 
+        public void SetCurrentValues()
+        {
+            var pumpValues = new PumpValues(TargetVolume, Diameter, Rate, PumpDirection, TargetVolume.Unit);
+            UpdateValues(pumpValues);
+        }
+
         #endregion
 
         #region Deconstructor

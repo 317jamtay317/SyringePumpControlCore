@@ -67,5 +67,10 @@ namespace SyringePumpControlNetStandard.Models
         /// </summary>
         /// <param name="values"></param>
         void UpdateValues(PumpValues values);
+
+        /// <summary>
+        /// Sets pump with current values
+        /// </summary>
+        void SetCurrentValues();
     }
 }
