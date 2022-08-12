@@ -18,7 +18,7 @@ namespace SyringePumpControlNetStandard.Services
             BuzzDelay = 50;
         }
 
-        public long BuzzDelay { get; set; }
+        public int BuzzDelay { get; set; }
         
         public IEnumerable<string> PortNames => _port.GetPortNames();
         
