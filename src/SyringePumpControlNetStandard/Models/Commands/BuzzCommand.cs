@@ -9,6 +9,6 @@
             _power = power;
         }
 
-        public override string Message => $"*BUZ{(int)_power}\r\n";
+        public override string Message => $"*BUZ{(int)_power}";
     }
 }
