@@ -5,6 +5,8 @@
         <PackageProjectUrl>https://github.com/317jamtay317/NetStandardSyringePumpControl/tree/main/src/SyringePumpControlNetStandard</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <RepositoryType>https://github.com/317jamtay317/NetStandardSyringePumpControl</RepositoryType>
+        <AssemblyVersion>1.0.0.1</AssemblyVersion>
+        <FileVersion>1.0.0.1</FileVersion>
     </PropertyGroup>
     <ItemGroup>
       <None Include="..\..\README.md">
