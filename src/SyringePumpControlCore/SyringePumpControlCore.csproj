@@ -4,10 +4,17 @@
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <PackageProjectUrl>https://github.com/317jamtay317/NetStandardSyringePumpControl/tree/main/src/SyringePumpControlNetStandard</PackageProjectUrl>
         <PackageReadmeFile>README.md</PackageReadmeFile>
-        <RepositoryType>https://github.com/317jamtay317/NetStandardSyringePumpControl</RepositoryType>
-        <AssemblyVersion>1.0.1.1</AssemblyVersion>
-        <FileVersion>1.0.1.1</FileVersion>
-        <PackageId>$(AssemblyName)</PackageId>
+        <RepositoryType>git</RepositoryType>
+        <AssemblyVersion>1.0.0</AssemblyVersion>
+        <FileVersion>1.0.0</FileVersion>
+        <PackageId>JailaFiles.Util.SyringePump</PackageId>
+        <Authors>James Tays</Authors>
+        <Company>JailaFiles</Company>
+        <Product>SyringePumpApi</Product>
+        <Description>Library To Control SyringePump Pumps</Description>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/317jamtay317/SyringePumpControlCore</RepositoryUrl>
+        <PackageTags>SyringePump, API, .NetCore</PackageTags>
     </PropertyGroup>
     <ItemGroup>
       <None Include="..\..\README.md">
