@@ -7,8 +7,9 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+
     <ItemGroup>
-      <PackageReference Include="SyringePumpControlNetStandard" Version="1.0.0" />
+      <ProjectReference Include="..\..\src\SyringePumpControlCore\SyringePumpControlCore.csproj" />
     </ItemGroup>
 
 </Project>

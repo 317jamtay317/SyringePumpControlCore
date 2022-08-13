@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <PackageProjectUrl>https://github.com/317jamtay317/NetStandardSyringePumpControl/tree/main/src/SyringePumpControlNetStandard</PackageProjectUrl>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <RepositoryType>https://github.com/317jamtay317/NetStandardSyringePumpControl</RepositoryType>
+        <AssemblyVersion>1.0.1.1</AssemblyVersion>
+        <FileVersion>1.0.1.1</FileVersion>
+        <PackageId>$(AssemblyName)</PackageId>
+    </PropertyGroup>
+    <ItemGroup>
+      <None Include="..\..\README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+      <PackageReference Include="System.IO.Ports" Version="6.0.0" />
+    </ItemGroup>
+</Project>

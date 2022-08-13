@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using SyringePumpControlNetStandard.Models;
+using SyringePumpControlCore.Models;
+using SyringePumpControlCore.Services;
 using SyringePumpControlNetStandard.Services;
 
 var port = new SyringePumpPort() { BaudRate=19200,Parity=System.IO.Ports.Parity.None, DataBits=8, StopBits=System.IO.Ports.StopBits.One};
