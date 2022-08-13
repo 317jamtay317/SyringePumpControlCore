@@ -19,7 +19,7 @@ namespace SyringePumpControlNetStandard.Models
         /// <summary>
         /// The direction of the pump, by default the direction is infuse
         /// </summary>
-        PumpDirection PumpDirection { get; }
+        PumpDirection PumpDirection { get; set; }
 
         string Direction { get; }
 
@@ -72,5 +72,6 @@ namespace SyringePumpControlNetStandard.Models
         /// Sets pump with current values
         /// </summary>
         void SetCurrentValues();
+        
     }
 }

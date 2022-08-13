@@ -9,18 +9,18 @@ namespace SyringePumpControlNetStandard.Services
     public class PumpService:IPumpService, IDisposable
     {
         private readonly PumpChain _pumps;
-        private readonly IPort _port;
+        private readonly ISyringePumpPort _syringePumpPort;
 
         public PumpService(GetPumps getPumps)
         {
             _pumps = getPumps();
-            _port = new Port();
+            _syringePumpPort = new SyringePumpPort();
             BuzzDelay = 50;
         }
 
         public int BuzzDelay { get; set; }
         
-        public IEnumerable<string> PortNames => _port.GetPortNames();
+        public IEnumerable<string> PortNames => _syringePumpPort.GetPortNames();
         
         public void Start(int pumpAddress, float rate)
         {
@@ -85,7 +85,7 @@ namespace SyringePumpControlNetStandard.Services
 
         public void Dispose()
         {
-            _port?.Dispose();
+            _syringePumpPort?.Dispose();
         }
     }
 
