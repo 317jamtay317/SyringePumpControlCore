@@ -5,15 +5,7 @@ using SyringePumpControlCore.Services;
 using SyringePumpControlNetStandard.Services;
 
 var port = new SyringePumpPort() { BaudRate=19200,Parity=System.IO.Ports.Parity.None, DataBits=8, StopBits=System.IO.Ports.StopBits.One};
-var pumpA = new Pump(port)
-{
-    Address = 0, 
-    Diameter = 14, 
-    Rate = 40,
-    PumpDirection = PumpDirection.Infuse,
-    RateUnits = RateUnits.MicrolitersPerMinutes, 
-    TargetVolume = "3ml"
-};
+var pumpA = new Pump(port);
 var pumpChain = new PumpChain { pumpA };
 
 IPumpService pumpService = new PumpService(()=> pumpChain);
@@ -27,6 +19,10 @@ foreach (var portName in port.GetPortNames())
 
 var selectedPortName = Console.ReadLine();
 port.PortName = selectedPortName;
+
+var pump = pumpService.GetPump(0);
+var pumpValues = new PumpValues("3ul", 14, 40, PumpDirection.Withdraw, Units.Microliters);
+pump.UpdateValues(pumpValues);
 
 while (true)
 {
