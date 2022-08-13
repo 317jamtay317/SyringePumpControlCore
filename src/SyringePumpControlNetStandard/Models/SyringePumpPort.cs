@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SyringePumpControlNetStandard.Models
 {
-    public class Port : IPort, IDisposable
+    public class SyringePumpPort : ISyringePumpPort, IDisposable
     {
         private SerialPort _port = new SerialPort();
         public IEnumerable<string> GetPortNames()

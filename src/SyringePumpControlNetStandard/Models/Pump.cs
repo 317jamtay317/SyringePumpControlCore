@@ -6,24 +6,24 @@ namespace SyringePumpControlNetStandard.Models
 {
     public class Pump : PropertyChangedBaseClass, IPump, IDisposable
     {
-        private readonly IPort _port;
+        private readonly ISyringePumpPort _syringePumpPort;
 
         #region Constructors
 
-        public Pump(IPort port)
+        public Pump(ISyringePumpPort syringePumpPort)
         {
-            _port = port;
+            _syringePumpPort = syringePumpPort;
         }
 
         public Pump(
-            IPort port,
+            ISyringePumpPort syringePumpPort,
             int address, 
             PumpDirection direction, 
             float diameter, 
             float rate, 
             RateUnits rateUnits, 
             float volume, 
-            Units volumeUnits):this(port)
+            Units volumeUnits):this(syringePumpPort)
         {
             PumpDirection = direction;
             Address = address;
@@ -41,7 +41,7 @@ namespace SyringePumpControlNetStandard.Models
         /// <summary>
         /// if the port is open we are connected
         /// </summary>
-        public bool IsConnected => _port.IsOpen;
+        public bool IsConnected => _syringePumpPort.IsOpen;
 
         /// <summary>
         /// The Pump address range between 00 and 99
@@ -126,7 +126,7 @@ namespace SyringePumpControlNetStandard.Models
             if (IsConnected) return;
             try
             {
-                _port.Open();
+                _syringePumpPort.Open();
             }
             catch (Exception e)
             {
@@ -140,7 +140,7 @@ namespace SyringePumpControlNetStandard.Models
             try
             {
                 if(IsConnected)
-                    _port.Close();
+                    _syringePumpPort.Close();
             }
             catch (Exception e)
             {
@@ -155,7 +155,7 @@ namespace SyringePumpControlNetStandard.Models
             {
                 Connect();
                 
-                _port.WriteLine(pumpCommand.ToString());
+                _syringePumpPort.WriteLine(pumpCommand.ToString());
                 
                 Disconnect();
             }
@@ -170,6 +170,11 @@ namespace SyringePumpControlNetStandard.Models
         {
             try
             {
+                Diameter = pumpValues.Diameter;
+                Rate = pumpValues.Rate;
+                TargetVolume = pumpValues.Volume;
+                PumpDirection = pumpValues.PumpDirection;
+                
                 foreach (var pumpCommand in pumpValues.ToCommands(Address))
                 {
                     Send(pumpCommand);
@@ -215,7 +220,7 @@ namespace SyringePumpControlNetStandard.Models
 
         public void Dispose()
         {
-            _port?.Dispose();
+            _syringePumpPort?.Dispose();
         }
 
         #endregion

@@ -8,13 +8,13 @@ namespace SyringPumpTests.Models
     [TestClass]
     public class PumpTests
     {
-        private Mock<IPort> _portMock;
+        private Mock<ISyringePumpPort> _portMock;
         private Pump _pump;
 
         [TestInitialize]
         public void Init()
         {
-            _portMock = new Mock<IPort>();
+            _portMock = new Mock<ISyringePumpPort>();
             _pump = new Pump(_portMock.Object);
         }
 
@@ -80,6 +80,15 @@ namespace SyringPumpTests.Models
             _portMock.Setup(x => x.IsOpen).Returns(true);
             _pump.Disconnect();
             _portMock.Verify(x=>x.Close(), Times.Once); 
+        }
+
+        [TestMethod]
+        public void UpdateValuesShouldSetPumpValues()
+        {
+            Assert.AreEqual(0, _pump.Diameter);
+            var pumpValues = new PumpValues("35ml", 12, 35, PumpDirection.Infuse, Units.Milliliters);
+            _pump.UpdateValues(pumpValues);
+            Assert.AreEqual(12, _pump.Diameter);
         }
     }
 }

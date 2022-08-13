@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SyringePumpControlNetStandard.Models
 {
-    public interface IPort:IDisposable
+    public interface ISyringePumpPort:IDisposable
     {
         IEnumerable<string> GetPortNames();
         object GetLifetimeService();

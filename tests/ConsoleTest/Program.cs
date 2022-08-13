@@ -3,7 +3,7 @@
 using SyringePumpControlNetStandard.Models;
 using SyringePumpControlNetStandard.Services;
 
-var port = new Port() { BaudRate=19200,Parity=System.IO.Ports.Parity.None, DataBits=8, StopBits=System.IO.Ports.StopBits.One};
+var port = new SyringePumpPort() { BaudRate=19200,Parity=System.IO.Ports.Parity.None, DataBits=8, StopBits=System.IO.Ports.StopBits.One};
 var pumpA = new Pump(port)
 {
     Address = 0, 
